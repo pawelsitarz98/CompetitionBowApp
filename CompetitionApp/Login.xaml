@@ -7,7 +7,37 @@
         mc:Ignorable="d"
         Title="Login" Height="350" Width="250">
     <Grid>
-        
-        
+
+
+        <Rectangle Height="320" Width="240">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF00FF74" Offset="0.0"/>
+                    <GradientStop Color="#FF3076B4" Offset="0.4"/>
+                    <GradientStop Color="#FF78EC55" Offset="1.1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Border Width="200" Height="200" Background="White" VerticalAlignment="Bottom" Margin="10" BorderThickness="1,1,1,1" CornerRadius="15">
+            <StackPanel>
+                <Label Content="Login" HorizontalContentAlignment="Center"/>
+                <Label Height="10"/>
+                <TextBox x:Name="loginBox" Width="150" Height="25"/>
+                <Label Height="10"/>
+                <Label Content="Password" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Height="10"/>
+                <PasswordBox x:Name="passwordBox" Width="150" Height="25"/>
+                <Label Height="25"/>
+                <Button Content="Log In" Name="logButton" Width="150" Height="30" Background="LightGray" Click="logButton_Click"/>
+            </StackPanel>
+
+        </Border>
+
+        <Image Width="150" VerticalAlignment="Top" Margin="-20">
+            <Image.Source>
+                <BitmapImage UriSource="/Graphics/login.png"/>
+            </Image.Source>
+
+        </Image>
     </Grid>
 </Window>

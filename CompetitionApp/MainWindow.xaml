@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CompetitionApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="CompetitionApp" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid Height="25" VerticalAlignment="top" Background="#FF8A57BF">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="DEFAULT" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <materialDesign:PopupBox HorizontalAlignment="Right" PlacementMode="BottomAndAlignCentres" StaysOpen="False" VerticalAlignment="Center">
+                    <StackPanel Width="100">
+                        <Button Content="Account"/>
+                        <Button Content="Settings"/>
+                        <Button Content="Help"/>
+                        <Separator/>
+                        <Button x:Name="logoutButton" Content="Log Out" Click="logoutButton_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid Width="125" HorizontalAlignment="Left" Background="#FF3379CD">
+        </Grid>
     </Grid>
+
 </Window>

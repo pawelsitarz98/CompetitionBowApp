@@ -24,5 +24,13 @@ namespace CompetitionApp
         {
             InitializeComponent();
         }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
     }
 }
