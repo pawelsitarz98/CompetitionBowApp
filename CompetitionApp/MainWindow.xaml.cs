@@ -32,5 +32,10 @@ namespace CompetitionApp
             login.Show();
 
         }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
