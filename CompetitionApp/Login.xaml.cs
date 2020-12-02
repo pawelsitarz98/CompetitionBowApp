@@ -40,7 +40,8 @@ namespace CompetitionApp
                 sqlCommand.Parameters.AddWithValue("@Password", passwordBox.Password);
                 int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
                 if(count == 1)
-                {
+                { 
+                   
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Close();

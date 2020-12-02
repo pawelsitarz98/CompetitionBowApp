@@ -6,8 +6,31 @@
         xmlns:local="clr-namespace:CompetitionApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="CompetitionApp" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="CompetitionApp" Height="380" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="35"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="buttonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="buttonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="LightGray">
         <Grid Height="25" VerticalAlignment="top" Background="#FF8A57BF">
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock x:Name="userBlock" Text="DEFAULT" HorizontalAlignment="Right" VerticalAlignment="Center"/>
@@ -22,23 +45,52 @@
                 </materialDesign:PopupBox>
             </StackPanel>
         </Grid>
-        <Grid Width="125" HorizontalAlignment="Left" Background="#FF3379CD">
+        <Grid x:Name="GridMenu" Width="35" HorizontalAlignment="Left" Background="#FF3379CD">
             <StackPanel>
-                <Button x:Name="addButton" Background="#FF92A4A4" Click="addButton_Click" BorderBrush="Gray">
-                    <StackPanel Orientation="Horizontal" Background="#FF92A4A4">
-                        <materialDesign:PackIcon Kind="UserAdd" Height="25" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
-                        <TextBlock Text="Add player" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="12"/>
-                    </StackPanel>
-                </Button>
-                <Separator/>
-                <Button x:Name="" Background="#FF92A4A4" Click="addButton_Click" BorderBrush="Gray">
-                    <StackPanel Orientation="Horizontal" Background="#FF92A4A4">
-                        <materialDesign:PackIcon Kind="AboutCircleOutline" Height="25" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
-                        <TextBlock Text="Add player" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="12"/>
-                    </StackPanel>
-                </Button>
-                <Separator/>
+                <Grid Height="100" Background="white">
+                    <Button x:Name="buttonCloseMenu" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Collapsed" Click="buttonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF3379CD" Kind="ArrowLeft" Width="10" Height="15"/>
+                    </Button>
+                    <Button x:Name="buttonOpenMenu" Height="40" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Click="buttonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF3379CD" Kind="Menu" Width="10" Height="15"/>
+                    </Button>
+                    <Image Height="6" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Graphics/ArrowMC.png"/>
+                        </Image.Source>
 
+                    </Image>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountAdd" Foreground="DarkBlue" VerticalAlignment="Center"/>
+                        <TextBlock Text="Add players" VerticalAlignment="Center" Margin="15 5"/>
+                    </StackPanel>
+                </ListView>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ViewDashboard" Foreground="DarkBlue" VerticalAlignment="Center"/>
+                        <TextBlock Text="My players" FontSize="13" VerticalAlignment="Center" Margin="15 5"/>
+                    </StackPanel>
+                </ListView>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Score" Foreground="DarkBlue" VerticalAlignment="Center"/>
+                        <TextBlock Text="Score board" VerticalAlignment="Center" Margin="15 5"/>
+                    </StackPanel>
+                </ListView>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Notifications" Foreground="DarkBlue" VerticalAlignment="Center"/>
+                        <TextBlock Text="Notifications" VerticalAlignment="Center" Margin="15 5"/>
+                    </StackPanel>
+                </ListView>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Report" Foreground="DarkBlue" VerticalAlignment="Center"/>
+                        <TextBlock Text="Report player" VerticalAlignment="Center" Margin="15 5"/>
+                    </StackPanel>
+                </ListView>
 
             </StackPanel>
         </Grid>

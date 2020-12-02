@@ -37,5 +37,23 @@ namespace CompetitionApp
         {
 
         }
+
+        private void ro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            buttonOpenMenu.Visibility = Visibility.Collapsed;
+            buttonCloseMenu.Visibility = Visibility.Visible;
+        }
+
+        private void buttonCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            buttonOpenMenu.Visibility = Visibility.Visible;
+            buttonCloseMenu.Visibility = Visibility.Collapsed;
+            
+        }
     }
 }
