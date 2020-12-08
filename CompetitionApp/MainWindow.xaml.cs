@@ -55,5 +55,35 @@ namespace CompetitionApp
             buttonCloseMenu.Visibility = Visibility.Collapsed;
             
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddPlayer(object sender, MouseButtonEventArgs e)
+        {
+            Main.Content = new AddPlayers();
+        }
+
+        private void BtnMyPlayers(object sender, MouseButtonEventArgs e)
+        {
+            Main.Content = new MyPlayersPage();
+        }
+
+        private void BtnScoreBoard(object sender, MouseButtonEventArgs e)
+        {
+            Main.Content = new ScoreBoardPage();
+        }
+
+        private void BtnNotifications(object sender, MouseButtonEventArgs e)
+        {
+            Main.Content = new NotificationsPage();
+        }
+
+        private void BtnReportPlayer(object sender, MouseButtonEventArgs e)
+        {
+            Main.Content = new ReportPlayerPage();
+        }
     }
 }

@@ -1,0 +1,14 @@
+﻿<Page x:Class="CompetitionApp.ReportPlayerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CompetitionApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="325" d:DesignWidth="558"
+      Title="ReportPlayerPage">
+
+    <Grid>
+        <TextBlock Text="Report Player Page" FontSize="33" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Page>

@@ -61,31 +61,31 @@
 
                     </Image>
                 </Grid>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50" MouseLeftButtonUp="BtnAddPlayer">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="AccountAdd" Foreground="DarkBlue" VerticalAlignment="Center"/>
                         <TextBlock Text="Add players" VerticalAlignment="Center" Margin="15 5"/>
                     </StackPanel>
                 </ListView>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50" MouseLeftButtonUp="BtnMyPlayers">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ViewDashboard" Foreground="DarkBlue" VerticalAlignment="Center"/>
                         <TextBlock Text="My players" FontSize="13" VerticalAlignment="Center" Margin="15 5"/>
                     </StackPanel>
                 </ListView>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50" MouseLeftButtonUp="BtnScoreBoard">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Score" Foreground="DarkBlue" VerticalAlignment="Center"/>
                         <TextBlock Text="Score board" VerticalAlignment="Center" Margin="15 5"/>
                     </StackPanel>
                 </ListView>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50" MouseLeftButtonUp="BtnNotifications">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Notifications" Foreground="DarkBlue" VerticalAlignment="Center"/>
                         <TextBlock Text="Notifications" VerticalAlignment="Center" Margin="15 5"/>
                     </StackPanel>
                 </ListView>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="50" MouseLeftButtonUp="BtnReportPlayer">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Report" Foreground="DarkBlue" VerticalAlignment="Center"/>
                         <TextBlock Text="Report player" VerticalAlignment="Center" Margin="15 5"/>
@@ -94,6 +94,9 @@
 
             </StackPanel>
         </Grid>
+        <Frame x:Name="Main" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="558" Height="325">
+            
+        </Frame>
     </Grid>
 
 </Window>
