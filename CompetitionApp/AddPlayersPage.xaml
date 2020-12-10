@@ -6,23 +6,30 @@
       xmlns:local="clr-namespace:CompetitionApp"
       mc:Ignorable="d" 
       d:DesignHeight="325" d:DesignWidth="558"
-      Title="AddPlayers" Background="LightGray">
+      Title="AddPlayers">
 
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="50 0 100 100">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20 0 100 100">
             <StackPanel Orientation="Vertical">
                 <Label Content="Name" FontSize="10"/>
-                <TextBox x:Name="TxtName" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Button x:Name="BtnAddPlayer" Content="Add" Background="#FF2196F3"/>
+                <TextBox x:Name="TxtName" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"/>
+                <Separator Height="15" Visibility="Hidden"/>
+                <Button x:Name="BtnAddPlayer" Height="25" Content="Add" Background="#FF2196F3" Click="BtnAddPlayer_Click"/>
+                <Separator Height="25" Visibility="Hidden"/>
+                
+
             </StackPanel>
-            <Label Width="60"/>
+            <Separator Width="40" Visibility="Hidden"/>
             <StackPanel Orientation="Vertical">
                 <Label Content="Surname" FontSize="10"/>
-                <TextBox x:Name="TxtSurname" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="TxtSurname" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"/>
+                <Separator Height="15" Visibility="Hidden"/>
+                <ComboBox x:Name="ComboBoxClub" Width="100" Height="25" HorizontalAlignment="Center" BorderThickness="1,1,1,1"/>
             </StackPanel>
             
+
         </StackPanel>
-        
+        <RichTextBox x:Name="RichBoxMsg" Height="100" Width="300" Foreground="red" VerticalAlignment="Bottom" Margin="218,0,40,53" BorderThickness="1,1,1,1" IsReadOnly="True"/>
 
     </Grid>
 </Page>
