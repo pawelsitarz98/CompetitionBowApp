@@ -24,7 +24,7 @@
                 <Label Content="Surname" FontSize="10"/>
                 <TextBox x:Name="TxtSurname" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"/>
                 <Separator Height="15" Visibility="Hidden"/>
-                <ComboBox x:Name="ComboBoxClub" Width="100" Height="25" HorizontalAlignment="Center" BorderThickness="1,1,1,1"/>
+                <ComboBox x:Name="ComboBoxClub" Width="100" Height="25" HorizontalAlignment="Center" BorderThickness="1,1,1,1"  />
             </StackPanel>
             
 

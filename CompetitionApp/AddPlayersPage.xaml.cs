@@ -25,31 +25,34 @@ namespace CompetitionApp
         public AddPlayers()
         {
             InitializeComponent();
+            this.ComboBoxClub.Items.Add("LKS Zamek Suski");
+            this.ComboBoxClub.Items.Add("Płaszowianka");
         }
 
         private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=RegistredUsers; Integrated Security=True"); //connection data
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ArrowBase; Integrated Security=True"); //connection data
             try
             {
                 if (sqlConnection.State == ConnectionState.Closed)
                     sqlConnection.Open();
-                var query = "SELECT COUNT(1) FROM tblClub WHERE Login=@Login AND Password=@Password";   //sql command
+                var query = "INSERT INTO ArcherTable VALUES(11,@Name,@Surname,@Club, 'dd')";   //sql command
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.Parameters.AddWithValue("@Login", TxtName.Text);
-                sqlCommand.Parameters.AddWithValue("@Password", TxtSurname.Text);
+                sqlCommand.Parameters.AddWithValue("@Name", TxtName.Text);
+                sqlCommand.Parameters.AddWithValue("@Surname", TxtSurname.Text);
+                sqlCommand.Parameters.AddWithValue("@Club", ComboBoxClub.SelectedItem);
                 int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
                 if (count == 1)
                 {
 
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
+                    
+                    
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Login or Password is incorrect");
+                    
                 }
             }
             catch (Exception ex)
@@ -61,6 +64,12 @@ namespace CompetitionApp
             {
                 sqlConnection.Close();  //closing database connection
             }
+        }
+
+        private void ComboBoxClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            
         }
     }
 }
