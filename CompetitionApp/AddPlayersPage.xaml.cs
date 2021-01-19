@@ -25,8 +25,12 @@ namespace CompetitionApp
         public AddPlayers()
         {
             InitializeComponent();
+            //TODO add to db names of the clubs
             this.ComboBoxClub.Items.Add("LKS Zamek Suski");
-            this.ComboBoxClub.Items.Add("Płaszowianka");
+            this.ComboBoxClub.Items.Add("Plas");            
+            this.ComboBoxCategory.Items.Add("Senior");
+            this.ComboBoxCategory.Items.Add("Junior");
+            
         }
 
         private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
@@ -42,22 +46,10 @@ namespace CompetitionApp
                 sqlCommand.Parameters.AddWithValue("@Name", TxtName.Text);
                 sqlCommand.Parameters.AddWithValue("@Surname", TxtSurname.Text);
                 sqlCommand.Parameters.AddWithValue("@Club", ComboBoxClub.SelectedItem);
-                int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
-                if (count == 1)
-                {
-
-                    
-                    
-                    
-                }
-                else
-                {
-                    
-                }
+                              
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally

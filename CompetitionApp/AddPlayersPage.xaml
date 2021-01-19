@@ -9,7 +9,8 @@
       Title="AddPlayers">
 
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20 0 100 100">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="50 0 100 100">
+           
             <StackPanel Orientation="Vertical">
                 <Label Content="Name" FontSize="10"/>
                 <TextBox x:Name="TxtName" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"/>
@@ -24,12 +25,16 @@
                 <Label Content="Surname" FontSize="10"/>
                 <TextBox x:Name="TxtSurname" Width="100" Height="25" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"/>
                 <Separator Height="15" Visibility="Hidden"/>
-                <ComboBox x:Name="ComboBoxClub" Width="100" Height="25" HorizontalAlignment="Center" BorderThickness="1,1,1,1"  />
+                <ComboBox x:Name="ComboBoxClub" IsEditable="True" IsReadOnly="True" Text="--Select Club--" Width="100" Height="25" FontSize="10" HorizontalAlignment="Center" BorderThickness="1,1,1,1"  />
+                <Separator Height="15" Visibility="Hidden"/>
+                <ComboBox x:Name="ComboBoxCategory" IsEditable="True" IsReadOnly="True" Text="--Select Category--" Width="100" Height="25" FontSize="10" HorizontalAlignment="Center" BorderThickness="1,1,1,1"  />
             </StackPanel>
             
+            
+
 
         </StackPanel>
-        <RichTextBox x:Name="RichBoxMsg" Height="100" Width="300" Foreground="red" VerticalAlignment="Bottom" Margin="218,0,40,53" BorderThickness="1,1,1,1" IsReadOnly="True"/>
+        <RichTextBox x:Name="RichBoxMsg" Height="100" Width="300" Foreground="red" VerticalAlignment="Bottom" Margin="218,0,40,30" BorderThickness="1,1,1,1" IsReadOnly="True"/>
 
     </Grid>
 </Page>
