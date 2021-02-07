@@ -60,8 +60,27 @@ namespace CompetitionApp
 
         private void ComboBoxClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            
+
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ClubInfo; Integrated Security=True"); //connection data
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                    sqlConnection.Open();
+                var query = "SELECT ClubName";   //sql command
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = CommandType.Text;
+                ComboBoxClub.Text = sqlCommand.CommandText;
+
+            }
+            catch (Exception ex)
+            {
+                BoxMsg.Text = ex.Message;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();  //closing database connection
+            }
         }
     }
 }

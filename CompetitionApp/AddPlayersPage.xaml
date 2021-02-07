@@ -34,7 +34,7 @@
 
 
         </StackPanel>
-        <RichTextBox x:Name="RichBoxMsg" Height="100" Width="300" Foreground="red" VerticalAlignment="Bottom" Margin="218,0,40,30" BorderThickness="1,1,1,1" IsReadOnly="True"/>
+        <TextBox x:Name="BoxMsg" Height="100" Width="300" Foreground="red" VerticalAlignment="Bottom" Margin="218,0,40,30" BorderThickness="1,1,1,1" IsReadOnly="True"/>
 
     </Grid>
 </Page>
