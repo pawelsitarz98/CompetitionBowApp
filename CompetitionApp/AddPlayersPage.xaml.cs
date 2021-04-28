@@ -26,8 +26,27 @@ namespace CompetitionApp
         {
             InitializeComponent();
             //TODO add to db names of the clubs
-            this.ComboBoxClub.Items.Add("LKS Zamek Suski");
-            this.ComboBoxClub.Items.Add("Plas");            
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ClubInfo; Integrated Security=True"); //connection data
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                    sqlConnection.Open();
+                var query = "SELECT ClubName";   //sql command
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = CommandType.Text;                              
+                ComboBoxCategory.Items.Add(sqlCommand);
+                
+
+            }
+            catch (Exception ex)
+            {
+               
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();  //closing database connection
+            }
             this.ComboBoxCategory.Items.Add("Senior");
             this.ComboBoxCategory.Items.Add("Junior");
             
@@ -61,26 +80,7 @@ namespace CompetitionApp
         private void ComboBoxClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ClubInfo; Integrated Security=True"); //connection data
-            try
-            {
-                if (sqlConnection.State == ConnectionState.Closed)
-                    sqlConnection.Open();
-                var query = "SELECT ClubName";   //sql command
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.CommandType = CommandType.Text;
-                ComboBoxClub.Text = sqlCommand.CommandText;
-
-            }
-            catch (Exception ex)
-            {
-                BoxMsg.Text = ex.Message;
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlConnection.Close();  //closing database connection
-            }
+           
         }
     }
 }
