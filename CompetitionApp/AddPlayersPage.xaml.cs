@@ -25,28 +25,9 @@ namespace CompetitionApp
         public AddPlayers()
         {
             InitializeComponent();
-            //TODO add to db names of the clubs
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ClubInfo; Integrated Security=True"); //connection data
-            try
-            {
-                if (sqlConnection.State == ConnectionState.Closed)
-                    sqlConnection.Open();
-                var query = "SELECT ClubName";   //sql command
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.CommandType = CommandType.Text;                              
-                ComboBoxCategory.Items.Add(sqlCommand);
-                
-
-            }
-            catch (Exception ex)
-            {
-               
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlConnection.Close();  //closing database connection
-            }
+            var archer = new ArchersDBEntities();
+            
+            
             this.ComboBoxCategory.Items.Add("Senior");
             this.ComboBoxCategory.Items.Add("Junior");
             
@@ -54,27 +35,17 @@ namespace CompetitionApp
 
         private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=PAWEŁ-KOMPUTER\SQLEXPRESS; Initial Catalog=ArrowBase; Integrated Security=True"); //connection data
-            try
+            var archer = new ArchersDBEntities();
+            Archer archerObj = new Archer() 
             {
-                if (sqlConnection.State == ConnectionState.Closed)
-                    sqlConnection.Open();
-                var query = "INSERT INTO ArcherTable VALUES(11,@Name,@Surname,@Club, 'dd')";   //sql command
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.Parameters.AddWithValue("@Name", TxtName.Text);
-                sqlCommand.Parameters.AddWithValue("@Surname", TxtSurname.Text);
-                sqlCommand.Parameters.AddWithValue("@Club", ComboBoxClub.SelectedItem);
-                              
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlConnection.Close();  //closing database connection
-            }
+                Name = TxtName.Text,
+                Surname = TxtSurname.Text,
+                Club = ComboBoxClub.SelectedItem.ToString(),
+                Category = ComboBoxCategory.SelectedItem.ToString()
+
+        };
+            archer.Archers.Add(archerObj); //adding new Archers to DB
+            archer.SaveChanges();   //saving the changes
         }
 
         private void ComboBoxClub_SelectionChanged(object sender, SelectionChangedEventArgs e)

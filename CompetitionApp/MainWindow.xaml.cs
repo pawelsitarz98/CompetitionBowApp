@@ -23,6 +23,7 @@ namespace CompetitionApp
         public MainWindow()
         {
             InitializeComponent();
+            var archers = new ArchersDBEntities();  //DataContext of EF
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
