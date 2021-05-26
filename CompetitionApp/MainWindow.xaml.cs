@@ -23,7 +23,9 @@ namespace CompetitionApp
         public MainWindow()
         {
             InitializeComponent();
-           
+            RefereeDB refereeDB = new RefereeDB();
+            var id = new Login(); //id of the logged person
+            
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)

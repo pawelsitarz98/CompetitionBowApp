@@ -27,14 +27,26 @@ namespace CompetitionApp
         public Login()
         {
             InitializeComponent();
-           
+            
         } 
 
         private void logButton_Click(object sender, RoutedEventArgs e)
         {
+            RefereeDB referee = new RefereeDB();
+            if (referee.Login.Equals(loginBox.Text) && referee.Login.Equals(passwordBox.Password.ToString()))
+            {
+                MainWindow mainWindow = new MainWindow();
+                this.Close();
+                mainWindow.Show();
 
-            
-           
+            }
+                
+
+
+        }
+        public int IdSuccesfullyLogged()
+        {
+            return 1;
         }
     }
 }

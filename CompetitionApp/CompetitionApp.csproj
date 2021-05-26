@@ -17,6 +17,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publikuj\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -154,11 +154,32 @@
     <Compile Include="AddPlayersPage.xaml.cs">
       <DependentUpon>AddPlayersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Archers.cs">
+      <DependentUpon>Competition.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competition.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Competition.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competition.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Competition.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competition.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Competition.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MyPlayersPage.xaml.cs">
       <DependentUpon>MyPlayersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RefereeDB.cs">
+      <DependentUpon>Competition.tt</DependentUpon>
     </Compile>
     <Compile Include="ReportPlayerPage.xaml.cs">
       <DependentUpon>ReportPlayerPage.xaml</DependentUpon>
@@ -233,12 +254,47 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Competition.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Competition.edmx</DependentUpon>
+      <LastGenOutput>Competition.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Competition.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Competition.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Competition.edmx</DependentUpon>
+      <LastGenOutput>Competition.cs</LastGenOutput>
+    </Content>
+    <Content Include="Competition_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Competition.mdf</DependentUpon>
+    </Content>
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
+    <EntityDeploy Include="Competition.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Competition.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Competition.edmx.diagram">
+      <DependentUpon>Competition.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AddPlayers.datasource" />
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\CompetitionApp.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\CompetitionApp.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Login.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
+    <None Include="Properties\DataSources\MyPlayersPage.datasource" />
+    <None Include="Properties\DataSources\NotificationsPage.datasource" />
+    <None Include="Properties\DataSources\ReportPlayerPage.datasource" />
+    <None Include="Properties\DataSources\ScoreBoardPage.datasource" />
+    <None Include="Properties\DataSources\WelcomePage.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -258,7 +314,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 i x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
