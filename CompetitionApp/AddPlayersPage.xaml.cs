@@ -25,7 +25,7 @@ namespace CompetitionApp
         public AddPlayers()
         {
             InitializeComponent();
-            var archer = new ArchersDBEntities();
+            
             
             
             this.ComboBoxCategory.Items.Add("Senior");
@@ -35,18 +35,10 @@ namespace CompetitionApp
 
         private void BtnAddPlayer_Click(object sender, RoutedEventArgs e)
         {
-            var archer = new ArchersDBEntities();
-            Archer archerObj = new Archer() 
-            {
-                Name = TxtName.Text,
-                Surname = TxtSurname.Text,
-                Club = ComboBoxClub.SelectedItem.ToString(),
-                Category = ComboBoxCategory.SelectedItem.ToString()
-
-        };
-            archer.Archers.Add(archerObj); //adding new Archers to DB
-            archer.SaveChanges();   //saving the changes
+            
         }
+            
+        
 
         private void ComboBoxClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

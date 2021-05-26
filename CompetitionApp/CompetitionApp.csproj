@@ -154,24 +154,6 @@
     <Compile Include="AddPlayersPage.xaml.cs">
       <DependentUpon>AddPlayersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Archer.cs">
-      <DependentUpon>CompetitionMangmentModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CompetitionMangmentModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompetitionMangmentModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CompetitionMangmentModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompetitionMangmentModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CompetitionMangmentModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompetitionMangmentModels.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MyPlayersPage.xaml.cs">
       <DependentUpon>MyPlayersPage.xaml</DependentUpon>
     </Compile>
@@ -251,35 +233,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Content Include="ArchersDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ArchersDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>ArchersDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="CompetitionMangmentModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CompetitionMangmentModels.edmx</DependentUpon>
-      <LastGenOutput>CompetitionMangmentModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CompetitionMangmentModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CompetitionMangmentModels.edmx</DependentUpon>
-      <LastGenOutput>CompetitionMangmentModels.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
-    <EntityDeploy Include="CompetitionMangmentModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CompetitionMangmentModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="CompetitionMangmentModels.edmx.diagram">
-      <DependentUpon>CompetitionMangmentModels.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

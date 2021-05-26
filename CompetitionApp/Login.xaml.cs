@@ -27,11 +27,14 @@ namespace CompetitionApp
         public Login()
         {
             InitializeComponent();
-        }
+           
+        } 
 
         private void logButton_Click(object sender, RoutedEventArgs e)
         {
+
             
+           
         }
     }
 }

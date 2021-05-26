@@ -13,10 +13,10 @@ namespace CompetitionApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ArchersDBEntities : DbContext
+    public partial class CompetitionEntities : DbContext
     {
-        public ArchersDBEntities()
-            : base("name=ArchersDBEntities")
+        public CompetitionEntities()
+            : base("name=CompetitionEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace CompetitionApp
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Archer> Archers { get; set; }
+        public virtual DbSet<Archers> Archers { get; set; }
+        public virtual DbSet<RefereeDB> RefereeDB { get; set; }
     }
 }
